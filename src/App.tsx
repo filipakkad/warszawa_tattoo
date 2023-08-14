@@ -1,5 +1,18 @@
 import { Editions } from './editions/editions';
 
+const A = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+  const { href } = props;
+  if (href && href.startsWith('#')) {
+    return <a {...props} href={href} onClick={(e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      document.querySelector(href)?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }} />
+  }
+  return <a {...props} href={href} />;
+}
 
 function App() {
   return (
@@ -9,20 +22,18 @@ function App() {
 
   <header id="header" className="fixed-top ">
     <div className="container d-flex align-items-center justify-content-between">
-
       <h1 className="logo">
         <a href="./" className="logo"><img src="assets/img/wt_logo.png" alt="" className="img-fluid" /></a>
         <a href="./" id="logo">Kursy Tatuażu</a>
       </h1>
       <nav className="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="#about">Dlaczego my?</a></li>
-          <li><a href="#services">Terminy</a></li>
-          <li><a href="#application">Jak aplikować?</a></li>
-          <li><a href="#agenda">Program</a></li>
-          <li><a href="#portfolio">Lokalizacja</a></li>
-          <li><a href="#contact">Kontakt</a></li>
-
+          <li><A href="#about">Dlaczego my?</A></li>
+          <li><A href="#services">Terminy</A></li>
+          <li><A href="#application">Jak aplikować?</A></li>
+          <li><A href="#agenda">Program</A></li>
+          <li><A href="#portfolio">Lokalizacja</A></li>
+          <li><A href="#contact">Kontakt</A></li>
         </ul>
       </nav>
     </div>

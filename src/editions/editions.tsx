@@ -75,7 +75,7 @@ export const Editions = () => {
 	});
 	const { editionsCollection } = data || { editionsCollection: { items: [] } };
 	const editions = editionsCollection?.items as Edition[];
-	return editions?.map((edition) =>
+	return editions?.sort((a, b) => a.edycjaDo > b.edycjaDo ? 1 : -1).map((edition) =>
 		edition ? (
 			<div
 				key={edition.title}
