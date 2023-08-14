@@ -1,33 +1,55 @@
+import { useQuery } from "@tanstack/react-query";
+import { GraphQLClient } from "graphql-request";
+import { graphql } from "../gql";
+import { EdycjeQuery } from "../gql/graphql";
 
 type Edition = {
-	id: string;
 	title: string;
-	dates: string;
-	vacant: string;
+	edycjaOd: string;
+	edycjaDo: string;
+	wolneMiejsca: string;
 };
 
-const editions = [
+const graphQLClient = new GraphQLClient(
+	`https://graphql.contentful.com/content/v1/spaces/${
+		import.meta.env.VITE_CONTENTFUL_SPACE
+	}`,
 	{
-		id: "101 edycja",
-		title: "101 edycja",
-		dates: "21 sierpnia - 1 września 2023",
-		vacant: "Liczba wolnych miejsc: brak",
-	},
-	{
-		id: "102 edycja",
-		title: "102 edycja",
-		dates: "4 - 15 września 2023",
-		vacant: "Liczba wolnych miejsc: brak",
-	},
-	{
-		id: "103 edycja",
-		title: "103 edycja",
-		dates: "18 - 29 września 2023",
-		vacant: "Liczba wolnych miejsc: 3",
-	},
-];
+		headers: {
+			authorization: `Bearer ${import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN}`,
+		},
+	}
+);
+
+const allEditions = graphql(/* GraphQL */ `
+	query Edycje {
+		editionsCollection {
+			items {
+				title
+				edycjaOd
+				edycjaDo
+				wolneMiejsca
+			}
+		}
+	}
+`);
+
+const printRange = (startDate: Date, endDate: Date) => {
+	if(startDate.getFullYear() === endDate.getFullYear()) {
+		if(startDate.getMonth() === endDate.getMonth()) {
+			return `${startDate.getDate()} - ${endDate.toLocaleString('pl-PL', { day: 'numeric', month: 'long'})} ${startDate.getFullYear()}`
+		} else {
+			return `${startDate.toLocaleString('pl-PL', { day: "numeric", month: 'long'})} - ${endDate.toLocaleString('pl-PL', { day: "numeric", month: 'long'})} ${startDate.getFullYear()}`
+		}
+	} else {
+		return `${startDate.toLocaleString('pl-PL', { day: 'numeric', month: 'long'})} ${startDate.getFullYear()} - ${endDate.toLocaleString('pl-PL', { day: 'numeric', month: 'long'})} ${endDate.getFullYear()}`
+	}
+}
 
 const EditionCard = ({ edition }: { edition: Edition }) => {
+	const startDate = new Date(edition?.edycjaOd || "");
+	const endDate = new Date(edition?.edycjaDo || "");
+
 	return (
 		<div className="icon-box">
 			<div className="icon">
@@ -37,23 +59,30 @@ const EditionCard = ({ edition }: { edition: Edition }) => {
 				<a id="title">{edition.title}</a>
 			</h4>
 			<p className="description" id="dates">
-				{edition.dates}
+				{printRange(startDate, endDate)}
 			</p>
 			<p className="description" id="vacant">
-				{edition.vacant}
+				{`Liczba wolnych miejsc: ${edition.wolneMiejsca}`}
 			</p>
 		</div>
 	);
 };
 
 export const Editions = () => {
-	return editions.map((edition) => (
-		<div
-			key={edition.id}
-			className="col-md-6 col-lg-6 align-items-stretch mb-5 mb-lg-0 edycja"
-			id={edition.id}
-		>
-			<EditionCard edition={edition} />
-		</div>
-	));
+	const { data } = useQuery<EdycjeQuery>({
+		queryKey: ["films"],
+		queryFn: async () => graphQLClient.request(allEditions),
+	});
+	const { editionsCollection } = data || { editionsCollection: { items: [] } };
+	const editions = editionsCollection?.items as Edition[];
+	return editions?.map((edition) =>
+		edition ? (
+			<div
+				key={edition.title}
+				className="col-md-6 col-lg-6 align-items-stretch mb-5 mb-lg-0 edycja"
+			>
+				<EditionCard edition={edition} />
+			</div>
+		) : null
+	);
 };
