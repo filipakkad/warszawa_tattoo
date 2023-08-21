@@ -42,7 +42,7 @@ function App() {
     <div className="hero-container">
       <img src="assets/img/wt_logo.png" alt="" className="img-fluid" />
       <h1>Kursy tatuażu</h1>
-      <a href="#about" className="btn-get-started scrollto">Zaczynamy</a>
+      <A href="#about" className="btn-get-started scrollto">Zaczynamy</A>
     </div>
   </section>
   <main id="main">
@@ -382,7 +382,7 @@ function App() {
             className="bx bxl-facebook"></i></a>
       </div>
     </div>
-  </footer><a href="#" className="back-to-top"><i className="ri-arrow-up-line"></i></a>
+  </footer><A href="#hero" className="back-to-top"><i className="ri-arrow-up-line"></i></A>
     </>
   )
 }
