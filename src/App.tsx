@@ -1,91 +1,41 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { Editions } from './editions/editions';
+import "./App.css";
+
 
 const A = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
-  const { href } = props;
+  const { href, onClick } = props;
   if (href && href.startsWith('#')) {
     return <a {...props} href={href} onClick={(e) => {
       e.preventDefault();
       e.stopPropagation();
+      if(onClick) onClick(e);
       document.querySelector(href)?.scrollIntoView({
         behavior: 'smooth'
       });
+
     }} />
   }
-  return <a {...props} href={href} />;
+  return <a {...props} onClick={onClick} href={href} />;
+}
+
+const HamburgerButton = ({ onClick }: { onClick: () => void}) => {
+  return <button onClick={onClick} data-collapse-toggle="navbar-hamburger" type="button" className="flex md:hidden items-center justify-center p-2 w-10 h-10 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+      <span className="sr-only">Open main menu</span>
+      <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
 }
 
 function App() {
-  useEffect(() => {
-      // Mobile Navigation
-  if ($('.nav-menu').length) {
-    var $mobile_nav = $('.nav-menu').clone().prop({
-      class: 'mobile-nav d-lg-none'
-    });
-    $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
-    $('body').append('<div class="mobile-nav-overly"></div>');
-
-    $(document).on('click', '.mobile-nav-toggle', function(e) {
-      $('body').toggleClass('mobile-nav-active');
-      $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-      $('.mobile-nav-overly').toggle();
-    });
-
-    $(document).on('click', '.mobile-nav .drop-down > a', function(e) {
-      e.preventDefault();
-      $(this).next().slideToggle(300);
-      $(this).parent().toggleClass('active');
-    });
-
-    $(document).click(function(e) {
-      var container = $(".mobile-nav, .mobile-nav-toggle");
-      if (!container.is(e.target) && container.has(e.target).length === 0) {
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-          $('.mobile-nav-overly').fadeOut();
-        }
-      }
-    });
-  } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
-    $(".mobile-nav, .mobile-nav-toggle").hide();
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const closeMenu = () => {
+    setIsMenuVisible(false);
   }
 
-  var scrolltoOffset = $('#header').outerHeight() - 17;
-  $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      if (target.length) {
-        e.preventDefault();
-
-        var scrollto = target.offset().top - scrolltoOffset;
-
-        if ($(this).attr("href") == '#header') {
-          scrollto = 0;
-        }
-
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
-
-        if ($(this).parents('.nav-menu, .mobile-nav').length) {
-          $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-          $(this).closest('li').addClass('active');
-        }
-
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-          $('.mobile-nav-overly').fadeOut();
-        }
-        return false;
-      }
-    }
-  });
-  })
   return (
-    <>
+    <div>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ9GMN8" height="0" width="0"
       style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
         <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -93,12 +43,13 @@ function App() {
 
   <header id="header" className="fixed-top ">
     <div className="container d-flex align-items-center justify-content-between">
-      <h1 className="logo">
+      <h1 className="logo flex gap-2 items-center">
         <a href="./" className="logo"><img src="assets/img/wt_logo.png" alt="" className="img-fluid" /></a>
         <a href="./" id="logo">Kursy Tatuażu</a>
       </h1>
-      <nav className="nav-menu d-none d-lg-block">
-        <ul>
+      <nav className="nav-menu d-lg-block justify-end md:justify-normal">
+        <HamburgerButton onClick={() => setIsMenuVisible(true)} />
+        <ul className="hidden md:flex">
           <li><A href="#about">Dlaczego my?</A></li>
           <li><A href="#services">Terminy</A></li>
           <li><A href="#application">Jak aplikować?</A></li>
@@ -106,6 +57,21 @@ function App() {
           <li><A href="#portfolio">Lokalizacja</A></li>
           <li><A href="#contact">Kontakt</A></li>
         </ul>
+        {isMenuVisible &&
+          <div className='nav-menu fixed top-0 left-0 w-full h-screen bg-black p-3 z-20'>
+            <div className='flex justify-end w-full'>
+              <HamburgerButton onClick={closeMenu} />
+            </div>
+            <ul className={`flex md:hidden flex-col text-white`}>
+              <li><A onClick={closeMenu} href="#about">Dlaczego my?</A></li>
+              <li><A onClick={closeMenu} href="#services">Terminy</A></li>
+              <li><A onClick={closeMenu} href="#application">Jak aplikować?</A></li>
+              <li><A onClick={closeMenu} href="#agenda">Program</A></li>
+              <li><A onClick={closeMenu} href="#portfolio">Lokalizacja</A></li>
+              <li><A onClick={closeMenu} href="#contact">Kontakt</A></li>
+            </ul>
+          </div>
+          }
       </nav>
     </div>
   </header>
@@ -454,7 +420,7 @@ function App() {
       </div>
     </div>
   </footer><A href="#hero" className="back-to-top"><i className="ri-arrow-up-line"></i></A>
-    </>
+    </div>
   )
 }
 

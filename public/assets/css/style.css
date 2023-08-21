@@ -121,10 +121,6 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
 }
 
-.nav-menu > ul {
-  display: flex;
-}
-
 .nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
@@ -226,7 +222,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-scrolled .nav-menu > ul > li > a, .header-inner-pages .nav-menu > ul > li > a {
   color: #493c3e;
+  @media (max-width: 1366px) {
+    color: #fff;
+  }
 }
+
 
 @media (max-width: 1366px) {
   .nav-menu .drop-down .drop-down ul {

@@ -30,7 +30,6 @@
   });
 
 
-
   // Navigation active state on scroll
   var nav_sections = $('section');
   var main_nav = $('.nav-menu, .mobile-nav');
