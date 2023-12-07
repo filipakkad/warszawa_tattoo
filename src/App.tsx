@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Editions } from './editions/editions';
+import { Price } from './price/price';
+
 import "./App.css";
 
 
@@ -80,6 +82,7 @@ function App() {
       <img src="assets/img/wt_logo.png" alt="" className="img-fluid" />
       <h1>Kursy tatuażu</h1>
       <A href="#about" className="btn-get-started scrollto">Zaczynamy</A>
+      <p className="text-4xl font-light pt-12 font-[Nunito]">BEZPRZEWODOWA MASZYNKA DLA KAŻDEGO UCZESTNIKA GRATIS!!!</p>
     </div>
   </section>
   <main id="main">
@@ -94,16 +97,19 @@ function App() {
           </p>
           <p>
             <strong>Kurs tatuażu w akademii Warszawa Tattoo, to najlepsza tego typu propozycja w Polsce. 80 godzin
-              zegarowych kursu za 5000 zł, tatuowanie na modelach w cenie.</strong>
+              zegarowych kursu za <Price /> zł, tatuowanie na modelach w cenie.</strong>
+          </p>
+          <p>
+            <strong>Każdy uczestnik kursu otrzymuje bezprzewodową maszynkę do tatuowania GRATIS!!!</strong>
           </p>
           <br />
           <hr />
-          <div className="row counters">
+          <div className="row counters pt-4">
             <div className="col-md-4 col-lg-4 align-items-stretch mb-5 mb-lg-0">
               <div className="icon-box">
                 <div className="icon"><i className="bx bx-calendar"></i></div>
                 <p className="title">
-                  <a><span data-toggle="counter-up">99</span> edycji kursu</a>
+                  <a><span data-toggle="counter-up">100</span> edycji kursu</a>
                 </p>
               </div>
             </div>
@@ -217,7 +223,7 @@ function App() {
                   kursu? <i className="icofont-simple-up"></i></a>
                 <div id="faq3" className="collapse" data-bs-parent=".faq-list">
                   <p>
-                    Nasz Kurs to jedyna taka propozycja w Polsce. 5000 zł za 80 godzin Kursu.
+                    Nasz Kurs to jedyna taka propozycja w Polsce. <Price /> zł za 80 godzin Kursu.
                   </p>
                 </div>
               </li>

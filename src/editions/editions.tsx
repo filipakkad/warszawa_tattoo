@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { GraphQLClient } from "graphql-request";
 import { graphql } from "../gql";
 import { EdycjeQuery } from "../gql/graphql";
+import { graphQLClient } from "../graphql-client/client.ts";
 
 type Edition = {
 	title: string;
@@ -9,17 +9,6 @@ type Edition = {
 	edycjaDo: string;
 	wolneMiejsca: string;
 };
-
-const graphQLClient = new GraphQLClient(
-	`https://graphql.contentful.com/content/v1/spaces/${
-		import.meta.env.VITE_CONTENTFUL_SPACE
-	}`,
-	{
-		headers: {
-			authorization: `Bearer ${import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN}`,
-		},
-	}
-);
 
 const allEditions = graphql(/* GraphQL */ `
 	query Edycje {

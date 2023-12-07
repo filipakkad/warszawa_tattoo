@@ -486,6 +486,77 @@ export type ImageTransformOptions = {
   width?: InputMaybe<Scalars['Dimension']['input']>;
 };
 
+/** Cena [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/price) */
+export type Price = Entry & {
+  __typename?: 'Price';
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<PriceLinkingCollections>;
+  price?: Maybe<Scalars['Float']['output']>;
+  sys: Sys;
+};
+
+
+/** Cena [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/price) */
+export type PriceLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** Cena [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/price) */
+export type PricePriceArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PriceCollection = {
+  __typename?: 'PriceCollection';
+  items: Array<Maybe<Price>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type PriceFilter = {
+  AND?: InputMaybe<Array<InputMaybe<PriceFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<PriceFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  price?: InputMaybe<Scalars['Float']['input']>;
+  price_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  price_gt?: InputMaybe<Scalars['Float']['input']>;
+  price_gte?: InputMaybe<Scalars['Float']['input']>;
+  price_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+  price_lt?: InputMaybe<Scalars['Float']['input']>;
+  price_lte?: InputMaybe<Scalars['Float']['input']>;
+  price_not?: InputMaybe<Scalars['Float']['input']>;
+  price_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type PriceLinkingCollections = {
+  __typename?: 'PriceLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type PriceLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum PriceOrder {
+  PriceAsc = 'price_ASC',
+  PriceDesc = 'price_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 export type Query = {
   __typename?: 'Query';
   asset?: Maybe<Asset>;
@@ -493,6 +564,8 @@ export type Query = {
   editions?: Maybe<Editions>;
   editionsCollection?: Maybe<EditionsCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  price?: Maybe<Price>;
+  priceCollection?: Maybe<PriceCollection>;
 };
 
 
@@ -537,6 +610,23 @@ export type QueryEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<EntryFilter>;
+};
+
+
+export type QueryPriceArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryPriceCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<PriceOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<PriceFilter>;
 };
 
 export type Sys = {
@@ -591,5 +681,11 @@ export type EdycjeQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type EdycjeQuery = { __typename?: 'Query', editionsCollection?: { __typename?: 'EditionsCollection', items: Array<{ __typename?: 'Editions', title?: string | null, edycjaOd?: any | null, edycjaDo?: any | null, wolneMiejsca?: string | null } | null> } | null };
 
+export type CenaQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CenaQuery = { __typename?: 'Query', priceCollection?: { __typename?: 'PriceCollection', items: Array<{ __typename?: 'Price', price?: number | null, sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null };
+
 
 export const EdycjeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Edycje"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<EdycjeQuery, EdycjeQueryVariables>;
+export const CenaDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Cena"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"priceCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"sys"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}}]}}]}}]}}]}}]} as unknown as DocumentNode<CenaQuery, CenaQueryVariables>;

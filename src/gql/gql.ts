@@ -14,6 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n\tquery Edycje {\n\t\teditionsCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n": types.EdycjeDocument,
+    "\n    query Cena {\n        priceCollection {\n            items {\n                price\n                sys {\n                    publishedAt\n                }\n            }\n        }\n    }\n": types.CenaDocument,
 };
 
 /**
@@ -34,6 +35,10 @@ export function graphql(source: string): unknown;
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n\tquery Edycje {\n\t\teditionsCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery Edycje {\n\t\teditionsCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n    query Cena {\n        priceCollection {\n            items {\n                price\n                sys {\n                    publishedAt\n                }\n            }\n        }\n    }\n"): (typeof documents)["\n    query Cena {\n        priceCollection {\n            items {\n                price\n                sys {\n                    publishedAt\n                }\n            }\n        }\n    }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
