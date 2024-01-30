@@ -232,7 +232,7 @@ function App() {
                   <i className="icofont-simple-up"></i></a>
                 <div id="faq4" className="collapse" data-bs-parent=".faq-list">
                   <p>
-                    Posiadamy oficjalny status firmy szkoleniowej pod nr 2.14/00014/2017. Zgłoś się do Twojego doradcy
+                    Posiadamy oficjalny status firmy szkoleniowej pod nr 2.14/00027/2024. Zgłoś się do Twojego doradcy
                     zawodowego w Powiatowym Urzędzie Pracy, a dowiesz się w jakiej kwocie możesz otrzymać
                     dofinansowanie.
                   </p>
