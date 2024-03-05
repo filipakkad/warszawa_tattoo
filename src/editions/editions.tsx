@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { graphql } from "../gql";
-import { EdycjeQuery } from "../gql/graphql";
+import { KursDwutygodniowyQuery, KursTygodniowyQuery, KursWeekendowyQuery } from "../gql/graphql";
 import { graphQLClient } from "../graphql-client/client.ts";
 
 type Edition = {
@@ -10,9 +10,35 @@ type Edition = {
 	wolneMiejsca: string;
 };
 
-const allEditions = graphql(/* GraphQL */ `
-	query Edycje {
-		editionsCollection {
+const twoWeeksCourse = graphql(/* GraphQL */ `
+	query KursDwutygodniowy {
+		editionsTwoWeeksCollection {
+			items {
+				title
+				edycjaOd
+				edycjaDo
+				wolneMiejsca
+			}
+		}
+	}
+`);
+
+const weeklyCourse = graphql(/* GraphQL */ `
+	query KursTygodniowy {
+		editionsWeekCollection {
+			items {
+				title
+				edycjaOd
+				edycjaDo
+				wolneMiejsca
+			}
+		}
+	}
+`);
+
+const weekendCourse = graphql(/* GraphQL */ `
+	query KursWeekendowy {
+		editionsWeekendCollection {
 			items {
 				title
 				edycjaOd
@@ -57,13 +83,57 @@ const EditionCard = ({ edition }: { edition: Edition }) => {
 	);
 };
 
-export const Editions = () => {
-	const { data } = useQuery<EdycjeQuery>({
-		queryKey: ["films"],
-		queryFn: async () => graphQLClient.request(allEditions),
+export enum CourseType {
+	WEEK,
+	WEEKEND	= 1,
+	TWOWEEKS	= 2,
+}
+
+export const WeekCourseEditions	= () => {
+	const { data } = useQuery<KursTygodniowyQuery>({
+		queryKey: ["courseType", CourseType.WEEK],
+		queryFn: async () => graphQLClient.request(weeklyCourse),
 	});
-	const { editionsCollection } = data || { editionsCollection: { items: [] } };
-	const editions = editionsCollection?.items as Edition[];
+	const { editionsWeekCollection } = data || { editionsCollection: { items: [] } };
+	const editions = editionsWeekCollection?.items as Edition[];
+	return editions?.sort((a, b) => a.edycjaDo > b.edycjaDo ? 1 : -1).map((edition) =>
+		edition ? (
+			<div
+				key={edition.title}
+				className="col-md-6 col-lg-6 align-items-stretch mb-5 mb-lg-0 edycja"
+			>
+				<EditionCard edition={edition} />
+			</div>
+		) : null
+	);
+}
+
+export const WeekendCourseEditions	= () => {
+	const { data } = useQuery<KursWeekendowyQuery>({
+		queryKey: ["courseType", CourseType.WEEKEND],
+		queryFn: async () => graphQLClient.request(weekendCourse),
+	});
+	const { editionsWeekendCollection } = data || { editionsCollection: { items: [] } };
+	const editions = editionsWeekendCollection?.items as Edition[];
+	return editions?.sort((a, b) => a.edycjaDo > b.edycjaDo ? 1 : -1).map((edition) =>
+		edition ? (
+			<div
+				key={edition.title}
+				className="col-md-6 col-lg-6 align-items-stretch mb-5 mb-lg-0 edycja"
+			>
+				<EditionCard edition={edition} />
+			</div>
+		) : null
+	);
+}
+
+export const TwoWeeksEditions = () => {
+	const { data } = useQuery<KursDwutygodniowyQuery>({
+		queryKey: ["courseType", CourseType.TWOWEEKS],
+		queryFn: async () => graphQLClient.request(twoWeeksCourse),
+	});
+	const { editionsTwoWeeksCollection } = data || { editionsCollection: { items: [] } };
+	const editions = editionsTwoWeeksCollection?.items as Edition[];
 	return editions?.sort((a, b) => a.edycjaDo > b.edycjaDo ? 1 : -1).map((edition) =>
 		edition ? (
 			<div

@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h3 {
+    font-size: large !important;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+
+
+header {
+    a:before {
+        background: white !important;
+    }
+}
+
+header.header-scrolled {
+    a {
+        color: black !important;
+    }
+    a:before {
+        background: black !important;
+    }
+}
+
+.items-list-main > a {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.items-list-main > a:hover {
+    color: white;
+    background: rgba(11, 1, 153, 0.4);
+}

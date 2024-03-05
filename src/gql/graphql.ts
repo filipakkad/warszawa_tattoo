@@ -239,59 +239,59 @@ export type ContentfulTag = {
   name?: Maybe<Scalars['String']['output']>;
 };
 
-/** Edycje kursu tatuażu [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editions) */
-export type Editions = Entry & {
-  __typename?: 'Editions';
+/** KURS 2-TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsTwoWeeks) */
+export type EditionsTwoWeeks = Entry & {
+  __typename?: 'EditionsTwoWeeks';
   contentfulMetadata: ContentfulMetadata;
   edycjaDo?: Maybe<Scalars['DateTime']['output']>;
   edycjaOd?: Maybe<Scalars['DateTime']['output']>;
-  linkedFrom?: Maybe<EditionsLinkingCollections>;
+  linkedFrom?: Maybe<EditionsTwoWeeksLinkingCollections>;
   sys: Sys;
   title?: Maybe<Scalars['String']['output']>;
   wolneMiejsca?: Maybe<Scalars['String']['output']>;
 };
 
 
-/** Edycje kursu tatuażu [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editions) */
-export type EditionsEdycjaDoArgs = {
+/** KURS 2-TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsTwoWeeks) */
+export type EditionsTwoWeeksEdycjaDoArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-/** Edycje kursu tatuażu [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editions) */
-export type EditionsEdycjaOdArgs = {
+/** KURS 2-TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsTwoWeeks) */
+export type EditionsTwoWeeksEdycjaOdArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-/** Edycje kursu tatuażu [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editions) */
-export type EditionsLinkedFromArgs = {
+/** KURS 2-TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsTwoWeeks) */
+export type EditionsTwoWeeksLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
-/** Edycje kursu tatuażu [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editions) */
-export type EditionsTitleArgs = {
+/** KURS 2-TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsTwoWeeks) */
+export type EditionsTwoWeeksTitleArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-/** Edycje kursu tatuażu [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editions) */
-export type EditionsWolneMiejscaArgs = {
+/** KURS 2-TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsTwoWeeks) */
+export type EditionsTwoWeeksWolneMiejscaArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type EditionsCollection = {
-  __typename?: 'EditionsCollection';
-  items: Array<Maybe<Editions>>;
+export type EditionsTwoWeeksCollection = {
+  __typename?: 'EditionsTwoWeeksCollection';
+  items: Array<Maybe<EditionsTwoWeeks>>;
   limit: Scalars['Int']['output'];
   skip: Scalars['Int']['output'];
   total: Scalars['Int']['output'];
 };
 
-export type EditionsFilter = {
-  AND?: InputMaybe<Array<InputMaybe<EditionsFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<EditionsFilter>>>;
+export type EditionsTwoWeeksFilter = {
+  AND?: InputMaybe<Array<InputMaybe<EditionsTwoWeeksFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<EditionsTwoWeeksFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   edycjaDo?: InputMaybe<Scalars['DateTime']['input']>;
   edycjaDo_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -328,20 +328,262 @@ export type EditionsFilter = {
   wolneMiejsca_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type EditionsLinkingCollections = {
-  __typename?: 'EditionsLinkingCollections';
+export type EditionsTwoWeeksLinkingCollections = {
+  __typename?: 'EditionsTwoWeeksLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
 };
 
 
-export type EditionsLinkingCollectionsEntryCollectionArgs = {
+export type EditionsTwoWeeksLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
-export enum EditionsOrder {
+export enum EditionsTwoWeeksOrder {
+  EdycjaDoAsc = 'edycjaDo_ASC',
+  EdycjaDoDesc = 'edycjaDo_DESC',
+  EdycjaOdAsc = 'edycjaOd_ASC',
+  EdycjaOdDesc = 'edycjaOd_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  WolneMiejscaAsc = 'wolneMiejsca_ASC',
+  WolneMiejscaDesc = 'wolneMiejsca_DESC'
+}
+
+/** KURS TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeek) */
+export type EditionsWeek = Entry & {
+  __typename?: 'EditionsWeek';
+  contentfulMetadata: ContentfulMetadata;
+  edycjaDo?: Maybe<Scalars['DateTime']['output']>;
+  edycjaOd?: Maybe<Scalars['DateTime']['output']>;
+  linkedFrom?: Maybe<EditionsWeekLinkingCollections>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']['output']>;
+  wolneMiejsca?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** KURS TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeek) */
+export type EditionsWeekEdycjaDoArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** KURS TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeek) */
+export type EditionsWeekEdycjaOdArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** KURS TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeek) */
+export type EditionsWeekLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** KURS TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeek) */
+export type EditionsWeekTitleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** KURS TYGODNIOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeek) */
+export type EditionsWeekWolneMiejscaArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EditionsWeekCollection = {
+  __typename?: 'EditionsWeekCollection';
+  items: Array<Maybe<EditionsWeek>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type EditionsWeekFilter = {
+  AND?: InputMaybe<Array<InputMaybe<EditionsWeekFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<EditionsWeekFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  edycjaDo?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  edycjaDo_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  edycjaDo_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_not?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  edycjaOd?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  edycjaOd_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  edycjaOd_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_not?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  wolneMiejsca?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_contains?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  wolneMiejsca_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  wolneMiejsca_not?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_not_contains?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type EditionsWeekLinkingCollections = {
+  __typename?: 'EditionsWeekLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type EditionsWeekLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum EditionsWeekOrder {
+  EdycjaDoAsc = 'edycjaDo_ASC',
+  EdycjaDoDesc = 'edycjaDo_DESC',
+  EdycjaOdAsc = 'edycjaOd_ASC',
+  EdycjaOdDesc = 'edycjaOd_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  WolneMiejscaAsc = 'wolneMiejsca_ASC',
+  WolneMiejscaDesc = 'wolneMiejsca_DESC'
+}
+
+/** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
+export type EditionsWeekend = Entry & {
+  __typename?: 'EditionsWeekend';
+  contentfulMetadata: ContentfulMetadata;
+  edycjaDo?: Maybe<Scalars['DateTime']['output']>;
+  edycjaOd?: Maybe<Scalars['DateTime']['output']>;
+  linkedFrom?: Maybe<EditionsWeekendLinkingCollections>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']['output']>;
+  wolneMiejsca?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
+export type EditionsWeekendEdycjaDoArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
+export type EditionsWeekendEdycjaOdArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
+export type EditionsWeekendLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
+export type EditionsWeekendTitleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
+export type EditionsWeekendWolneMiejscaArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type EditionsWeekendCollection = {
+  __typename?: 'EditionsWeekendCollection';
+  items: Array<Maybe<EditionsWeekend>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type EditionsWeekendFilter = {
+  AND?: InputMaybe<Array<InputMaybe<EditionsWeekendFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<EditionsWeekendFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  edycjaDo?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  edycjaDo_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  edycjaDo_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_not?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaDo_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  edycjaOd?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  edycjaOd_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  edycjaOd_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_not?: InputMaybe<Scalars['DateTime']['input']>;
+  edycjaOd_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  wolneMiejsca?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_contains?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  wolneMiejsca_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  wolneMiejsca_not?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_not_contains?: InputMaybe<Scalars['String']['input']>;
+  wolneMiejsca_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type EditionsWeekendLinkingCollections = {
+  __typename?: 'EditionsWeekendLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type EditionsWeekendLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum EditionsWeekendOrder {
   EdycjaDoAsc = 'edycjaDo_ASC',
   EdycjaDoDesc = 'edycjaDo_DESC',
   EdycjaOdAsc = 'edycjaOd_ASC',
@@ -559,13 +801,25 @@ export enum PriceOrder {
 
 export type Query = {
   __typename?: 'Query';
+  _node?: Maybe<_Node>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
-  editions?: Maybe<Editions>;
-  editionsCollection?: Maybe<EditionsCollection>;
+  editionsTwoWeeks?: Maybe<EditionsTwoWeeks>;
+  editionsTwoWeeksCollection?: Maybe<EditionsTwoWeeksCollection>;
+  editionsWeek?: Maybe<EditionsWeek>;
+  editionsWeekCollection?: Maybe<EditionsWeekCollection>;
+  editionsWeekend?: Maybe<EditionsWeekend>;
+  editionsWeekendCollection?: Maybe<EditionsWeekendCollection>;
   entryCollection?: Maybe<EntryCollection>;
   price?: Maybe<Price>;
   priceCollection?: Maybe<PriceCollection>;
+};
+
+
+export type Query_NodeArgs = {
+  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -586,20 +840,54 @@ export type QueryAssetCollectionArgs = {
 };
 
 
-export type QueryEditionsArgs = {
+export type QueryEditionsTwoWeeksArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
-export type QueryEditionsCollectionArgs = {
+export type QueryEditionsTwoWeeksCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<Array<InputMaybe<EditionsOrder>>>;
+  order?: InputMaybe<Array<InputMaybe<EditionsTwoWeeksOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<EditionsFilter>;
+  where?: InputMaybe<EditionsTwoWeeksFilter>;
+};
+
+
+export type QueryEditionsWeekArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryEditionsWeekCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<EditionsWeekOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<EditionsWeekFilter>;
+};
+
+
+export type QueryEditionsWeekendArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryEditionsWeekendCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<EditionsWeekendOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<EditionsWeekendFilter>;
 };
 
 
@@ -676,10 +964,24 @@ export type SysFilter = {
   publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
-export type EdycjeQueryVariables = Exact<{ [key: string]: never; }>;
+export type _Node = {
+  _id: Scalars['ID']['output'];
+};
+
+export type KursDwutygodniowyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type EdycjeQuery = { __typename?: 'Query', editionsCollection?: { __typename?: 'EditionsCollection', items: Array<{ __typename?: 'Editions', title?: string | null, edycjaOd?: any | null, edycjaDo?: any | null, wolneMiejsca?: string | null } | null> } | null };
+export type KursDwutygodniowyQuery = { __typename?: 'Query', editionsTwoWeeksCollection?: { __typename?: 'EditionsTwoWeeksCollection', items: Array<{ __typename?: 'EditionsTwoWeeks', title?: string | null, edycjaOd?: any | null, edycjaDo?: any | null, wolneMiejsca?: string | null } | null> } | null };
+
+export type KursTygodniowyQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type KursTygodniowyQuery = { __typename?: 'Query', editionsWeekCollection?: { __typename?: 'EditionsWeekCollection', items: Array<{ __typename?: 'EditionsWeek', title?: string | null, edycjaOd?: any | null, edycjaDo?: any | null, wolneMiejsca?: string | null } | null> } | null };
+
+export type KursWeekendowyQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type KursWeekendowyQuery = { __typename?: 'Query', editionsWeekendCollection?: { __typename?: 'EditionsWeekendCollection', items: Array<{ __typename?: 'EditionsWeekend', title?: string | null, edycjaOd?: any | null, edycjaDo?: any | null, wolneMiejsca?: string | null } | null> } | null };
 
 export type CenaQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -687,5 +989,7 @@ export type CenaQueryVariables = Exact<{ [key: string]: never; }>;
 export type CenaQuery = { __typename?: 'Query', priceCollection?: { __typename?: 'PriceCollection', items: Array<{ __typename?: 'Price', price?: number | null, sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null };
 
 
-export const EdycjeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Edycje"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<EdycjeQuery, EdycjeQueryVariables>;
+export const KursDwutygodniowyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"KursDwutygodniowy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsTwoWeeksCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<KursDwutygodniowyQuery, KursDwutygodniowyQueryVariables>;
+export const KursTygodniowyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"KursTygodniowy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsWeekCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<KursTygodniowyQuery, KursTygodniowyQueryVariables>;
+export const KursWeekendowyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"KursWeekendowy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsWeekendCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<KursWeekendowyQuery, KursWeekendowyQueryVariables>;
 export const CenaDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Cena"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"priceCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"sys"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}}]}}]}}]}}]}}]} as unknown as DocumentNode<CenaQuery, CenaQueryVariables>;
