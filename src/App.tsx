@@ -100,7 +100,7 @@ function App() {
         </a>
         <A className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="#bhpCourse">
           <span className="max-w-[250px] font-bold text-center md:!text-left">Kurs BHP wraz z inspekcją studia u
-          klienta (40H)</span>
+          klienta</span>
           <span className="text-nowrap">2500 zł</span>
         </A>
       </div>
