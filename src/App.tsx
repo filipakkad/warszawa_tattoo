@@ -54,7 +54,7 @@ function App() {
           <li><A href="#about">Dlaczego my?</A></li>
           <li><A href="#services">Terminy</A></li>
           <li><A href="#application">Jak aplikować?</A></li>
-          <li><A href="#agenda">Program</A></li>
+          <li><A href="#weeklyCourse">Programy</A></li>
           <li><A href="#portfolio">Lokalizacja</A></li>
           <li><A href="#contact">Kontakt</A></li>
         </ul>
@@ -82,11 +82,27 @@ function App() {
       <h1>Kursy tatuażu</h1>
       <A href="#about" className="btn-get-started scrollto">Zaczynamy</A>
       <div className="pt-10 flex flex-col gap-2 items-list-main">
-        <A className="hover:text-red-300" href="#weeklyCourse">Kurs tygodniowy (40H) - 3000 zł</A>
-       <A href="#weekendCourse">Kurs weekendowy (48H) - 4000 zł</A>
-        <A href="#twoWeeksCourse">Kurs dwutygodniowy (80H) - 6000 zł</A>
-        <a href="https://www.bhptatuazu.pl">Kurs BHP wraz z inspekcją studia u
-          klienta (40H) - 2500 zł</a>
+        <A className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="#weeklyCourse">
+          <span className="max-w-[200px] font-bold text-nowrap text-center md:!text-left">Kurs tygodniowy (40H)</span>
+          <span className="text-nowrap">3000 zł</span>
+        </A>
+        <A className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="#weekendCourse">
+          <span className="max-w-[200px] font-bold text-nowrap text-center md:!text-left">Kurs weekendowy (48H)</span>
+          <span className="text-nowrap">4000 zł</span>
+        </A>
+        <A className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="#twoWeeksCourse">
+          <span className="max-w-[200px] font-bold text-nowrap text-center md:!text-left">Kurs dwutygodniowy (80H)</span>
+          <span className="text-nowrap">6000 zł</span>
+        </A>
+        <a className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="https://www.bhptatuazu.pl">
+          <span className="max-w-[200px] font-bold text-nowrap text-center md:!text-left">Kurs BHP Tatuażu (on-line)  ↗</span>
+          <span className="text-nowrap">299 zł</span>
+        </a>
+        <A className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="#bhpCourse">
+          <span className="max-w-[250px] font-bold text-center md:!text-left">Kurs BHP wraz z inspekcją studia u
+          klienta (40H)</span>
+          <span className="text-nowrap">2500 zł</span>
+        </A>
       </div>
     </div>
   </section>
@@ -315,7 +331,6 @@ function App() {
                 </div>
                 <p className="mb-1">Tatuowanie (sztuczna skóra) – tatuaż marzeń – wykładowca tatuator z wieloletnim
                   doświadczeniem</p>
-                <p>Spotkanie z dystrybutorem sprzętu Arstattoo.</p>
               </a>
               <a className="list-group-item list-group-item-action flex-column align-items-start">
                 <div className="d-flex w-100 justify-content-between">
@@ -385,7 +400,6 @@ function App() {
                 </div>
                 <p className="mb-1">Tatuowanie (sztuczna skóra) – tatuaż marzeń – wykładowca tatuator z wieloletnim
                   doświadczeniem</p>
-                <p>Spotkanie z dystrybutorem sprzętu Arstattoo.</p>
               </a>
               <a className="list-group-item list-group-item-action flex-column align-items-start">
                 <div className="d-flex w-100 justify-content-between">
@@ -467,7 +481,6 @@ function App() {
                 </div>
                 <p className="mb-1">Tatuowanie (sztuczna skóra) – tatuaż marzeń – wykładowca tatuator z wieloletnim
                   doświadczeniem</p>
-                <p>Spotkanie z dystrybutorem sprzętu Arstattoo.</p>
               </a>
               <a className="list-group-item list-group-item-action flex-column align-items-start">
                 <div className="d-flex w-100 justify-content-between">
@@ -498,85 +511,132 @@ function App() {
             </div>
           </div>
         </section>
+        <section id="bhpCourse" className="about">
+          <div className="container">
+
+            <div className="section-title">
+              <h2>Kurs BHP</h2>
+            </div>
+            <div className="flex gap-4 md:flex-row flex-col">
+              <div
+                className="border rounded p-4 w-full flex flex-col items-center gap-3 hover:bg-gray-200/20 justify-between">
+                <div className="flex flex-col justify-between items-center">
+                  <div
+                    className="text-[13px] tracking-[1px] font-bold px-3 py-1 m-0 text-green-800 bg-green-200 rounded-[50px] w-fit h-min text-nowrap">299
+                    zł
+                  </div>
+                  <h3>Kurs BHP Tatuażu (on-line)</h3>
+                </div>
+                <p className="font-light">
+                  Higiena, dezynfekcja, sterylizacja, przepisy, Sanepid, BDP, niebezpieczne odpady medyczne, ubrania
+                  robocze, procedury
+                </p>
+                <a className="font-bold w-full" href="https://www.bhptatuazu.pl">Przejdź na www.bhptatuazu.pl ↗</a>
+              </div>
+              <div
+                className="border rounded p-4 w-full flex flex-col items-center gap-3 hover:bg-gray-200/20 justify-between">
+                <div className="flex flex-col justify-between items-center">
+                  <div
+                    className="text-[13px] tracking-[1px] font-bold px-3 py-1 m-0 text-green-800 bg-green-200 rounded-[50px] w-fit h-min text-nowrap">2500
+                    zł
+                  </div>
+                  <h3>Kurs BHP Tatuażu wraz z inspekcją studia u klienta</h3>
+                </div>
+                <p className="font-light">
+                  Szkolenie dla wszystkich pracowników studia (maks. 5 osób) wraz z inspekcją pomieszczeń studia pod
+                  kątem kontroli Sanepidu. Dojazd do klienta, koszt wg ilości km.
+                </p>
+                <div className="flex flex-col w-full">
+                  <strong>Zadzwoń: 22 893 33 33</strong>
+                  <strong>Napisz: <a href="mailto:bhp@warszawatattoo.pl">bhp@warszawatattoo.pl</a></strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section id="portfolio" className="portfolio">
           <div className="container">
             <div className="section-title">
-            <h2>Lokalizacja</h2>
+              <h2>Lokalizacja</h2>
               <p>Wszystkie kursy będą odbywać się w Studiu Tatuażu Warszawa Tattoo ul. Długa 16 (Starówka) w
-                Warszawie</p>
-            </div>
+                    Warszawie</p>
+                </div>
 
-            <div>
-              <iframe style={{ border: '0', width: '100%', height: '270px' }}
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19541.183432110065!2d20.989691398716314!3d52.24977825805084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd2449a71031%3A0x6ea04e6e2ab28191!2sStudio%20Tatua%C5%BCu%20Warszawa%20Tattoo!5e0!3m2!1spl!2spl!4v1609607786554!5m2!1spl!2spl"
-                      frameBorder="0" allowFullScreen></iframe>
-            </div>
-            <br/>
-            <hr/>
-            <br/>
-            <div className="row portfolio-container">
+                <div>
+                  <iframe style={{ border: '0', width: '100%', height: '270px' }}
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19541.183432110065!2d20.989691398716314!3d52.24977825805084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd2449a71031%3A0x6ea04e6e2ab28191!2sStudio%20Tatua%C5%BCu%20Warszawa%20Tattoo!5e0!3m2!1spl!2spl!4v1609607786554!5m2!1spl!2spl"
+                          frameBorder="0" allowFullScreen></iframe>
+                </div>
+                <br/>
+                <hr/>
+                <br/>
+                <div className="row portfolio-container">
 
-              <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-                <img src="assets/img/portfolio/zdjecie_1.jpg" className="img-fluid" alt=""/>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="assets/img/portfolio/zdjecie_2.jpg" className="img-fluid" alt=""/>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-                <img src="assets/img/portfolio/zdjecie_3.jpg" className="img-fluid" alt=""/>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-                <img src="assets/img/portfolio/zdjecie_4.jpg" className="img-fluid" alt=""/>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="assets/img/portfolio/zdjecie_5.jpg" className="img-fluid" alt=""/>
-              </div>
-            </div>
-
-          </div>
-        </section>
-        <section id="contact" className="contact">
-          <div className="container">
-
-            <div className="section-title">
-              <h2>Kontakt</h2>
-            </div>
-
-            <div className="row mt-5">
-
-              <div className="col-lg-12">
-                <div className="info">
-                  <div className="address">
-                    <i className="icofont-google-map"></i>
-                    <h4>Lokalizacja:</h4>
-                    <p>Długa 16 (Starówka)</p>
-                    <p>00-238 Warszawa</p>
+                  <div className="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <img src="assets/img/portfolio/zdjecie_1.jpg" className="img-fluid" alt=""/>
                   </div>
 
-
-                  <div className="email">
-                    <i className="icofont-envelope"></i>
-                    <h4>Email:</h4>
-                    <p><a href="mailto:akademia@warszawatattoo.pl">akademia@warszawatattoo.pl</a></p>
+                  <div className="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <img src="assets/img/portfolio/zdjecie_2.jpg" className="img-fluid" alt=""/>
                   </div>
 
-                  <div className="phone">
-                    <i className="icofont-phone"></i>
-                    <h4>Telefon:</h4>
-                    <p>22 893 33 33</p>
+                  <div className="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <img src="assets/img/portfolio/zdjecie_3.jpg" className="img-fluid" alt=""/>
                   </div>
 
+                  <div className="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <img src="assets/img/portfolio/zdjecie_4.jpg" className="img-fluid" alt=""/>
+                  </div>
+
+                  <div className="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <img src="assets/img/portfolio/zdjecie_5.jpg" className="img-fluid" alt=""/>
+                  </div>
                 </div>
 
               </div>
-            </div>
+            </section>
+            <section id="contact" className="contact">
+              <div className="container">
 
-          </div>
-        </section>
+                <div className="section-title">
+                  <h2>Kontakt</h2>
+                </div>
+
+                <div className="row mt-5">
+
+                  <div className="col-lg-12">
+                    <div className="info flex justify-evenly md:items-center md:flex-row flex-col gap-4">
+                      <div className="flex items-center gap-3">
+                        <i className="icofont-google-map"></i>
+                        <div className="flex flex-col">
+                          <h4>Lokalizacja:</h4>
+                          <p>Długa 16 (Starówka)</p>
+                          <p>00-238 Warszawa</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <i className="icofont-envelope"></i>
+                        <div className="flex flex-col">
+                          <h4>Email:</h4>
+                          <p><a href="mailto:akademia@warszawatattoo.pl">akademia@warszawatattoo.pl</a></p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <i className="icofont-phone"></i>
+                        <div className="flex flex-col">
+                          <h4>Telefon:</h4>
+                          <p>22 893 33 33</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </section>
       </main>
       <footer id="footer">
         <div className="container d-md-flex py-4">
