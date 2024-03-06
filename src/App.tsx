@@ -573,23 +573,23 @@ function App() {
                 <div className="row portfolio-container">
 
                   <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="assets/img/portfolio/zdjecie_1.jpg" className="img-fluid" alt=""/>
+                    <img src="assets/img/portfolio/zdjecie_1.webp" className="img-fluid" alt=""/>
                   </div>
 
                   <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="assets/img/portfolio/zdjecie_2.jpg" className="img-fluid" alt=""/>
+                    <img src="assets/img/portfolio/zdjecie_2.webp" className="img-fluid" alt=""/>
                   </div>
 
                   <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="assets/img/portfolio/zdjecie_3.jpg" className="img-fluid" alt=""/>
+                    <img src="assets/img/portfolio/zdjecie_3.webp" className="img-fluid" alt=""/>
                   </div>
 
                   <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="assets/img/portfolio/zdjecie_4.jpg" className="img-fluid" alt=""/>
+                    <img src="assets/img/portfolio/zdjecie_4.webp" className="img-fluid" alt=""/>
                   </div>
 
                   <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="assets/img/portfolio/zdjecie_5.jpg" className="img-fluid" alt=""/>
+                    <img src="assets/img/portfolio/zdjecie_5.webp" className="img-fluid" alt=""/>
                   </div>
                 </div>
 
