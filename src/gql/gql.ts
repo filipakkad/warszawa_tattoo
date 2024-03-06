@@ -15,7 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n\tquery KursDwutygodniowy {\n\t\teditionsTwoWeeksCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n": types.KursDwutygodniowyDocument,
     "\n\tquery KursTygodniowy {\n\t\teditionsWeekCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n": types.KursTygodniowyDocument,
-    "\n\tquery KursWeekendowy {\n\t\teditionsWeekendCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n": types.KursWeekendowyDocument,
+    "\n\tquery KursWeekendowy {\n\t\teditionsWeekendCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\twolneMiejsca\n\t\t\t\tdatyKursow\n\t\t\t}\n\t\t}\n\t}\n": types.KursWeekendowyDocument,
     "\n    query Cena {\n        priceCollection {\n            items {\n                price\n                sys {\n                    publishedAt\n                }\n            }\n        }\n    }\n": types.CenaDocument,
 };
 
@@ -44,7 +44,7 @@ export function graphql(source: "\n\tquery KursTygodniowy {\n\t\teditionsWeekCol
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n\tquery KursWeekendowy {\n\t\teditionsWeekendCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery KursWeekendowy {\n\t\teditionsWeekendCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\tedycjaOd\n\t\t\t\tedycjaDo\n\t\t\t\twolneMiejsca\n\t\t\t}\n\t\t}\n\t}\n"];
+export function graphql(source: "\n\tquery KursWeekendowy {\n\t\teditionsWeekendCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\twolneMiejsca\n\t\t\t\tdatyKursow\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery KursWeekendowy {\n\t\teditionsWeekendCollection {\n\t\t\titems {\n\t\t\t\ttitle\n\t\t\t\twolneMiejsca\n\t\t\t\tdatyKursow\n\t\t\t}\n\t\t}\n\t}\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

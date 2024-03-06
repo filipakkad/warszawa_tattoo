@@ -115,7 +115,7 @@ function App() {
                 w
                 stanie przekazać prawdziwą wiedzę praktyczną. Tylko my wiemy, czego oczekują klienci i jak tworzyć
                 prawdziwą
-                sztukę na skórze. Zajęcia odbywają przez dwa tygodnie od poniedziałku do piątku w max. 5-6 osobowych
+                sztukę na skórze. Zajęcia odbywają się w max. 5-6 osobowych
                 grupach.
               </p>
               <p>

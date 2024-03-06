@@ -485,8 +485,7 @@ export enum EditionsWeekOrder {
 export type EditionsWeekend = Entry & {
   __typename?: 'EditionsWeekend';
   contentfulMetadata: ContentfulMetadata;
-  edycjaDo?: Maybe<Scalars['DateTime']['output']>;
-  edycjaOd?: Maybe<Scalars['DateTime']['output']>;
+  datyKursow?: Maybe<Scalars['String']['output']>;
   linkedFrom?: Maybe<EditionsWeekendLinkingCollections>;
   sys: Sys;
   title?: Maybe<Scalars['String']['output']>;
@@ -495,13 +494,7 @@ export type EditionsWeekend = Entry & {
 
 
 /** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
-export type EditionsWeekendEdycjaDoArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-/** KURS WEEKENDOWY [See type definition](https://app.contentful.com/spaces/yzzhlc8m0xfb/content_types/editionsWeekend) */
-export type EditionsWeekendEdycjaOdArgs = {
+export type EditionsWeekendDatyKursowArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -535,24 +528,13 @@ export type EditionsWeekendFilter = {
   AND?: InputMaybe<Array<InputMaybe<EditionsWeekendFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<EditionsWeekendFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  edycjaDo?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaDo_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  edycjaDo_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaDo_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaDo_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  edycjaDo_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaDo_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaDo_not?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaDo_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  edycjaOd?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaOd_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  edycjaOd_gt?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaOd_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaOd_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
-  edycjaOd_lt?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaOd_lte?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaOd_not?: InputMaybe<Scalars['DateTime']['input']>;
-  edycjaOd_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  datyKursow?: InputMaybe<Scalars['String']['input']>;
+  datyKursow_contains?: InputMaybe<Scalars['String']['input']>;
+  datyKursow_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  datyKursow_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  datyKursow_not?: InputMaybe<Scalars['String']['input']>;
+  datyKursow_not_contains?: InputMaybe<Scalars['String']['input']>;
+  datyKursow_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
   title?: InputMaybe<Scalars['String']['input']>;
   title_contains?: InputMaybe<Scalars['String']['input']>;
@@ -584,10 +566,8 @@ export type EditionsWeekendLinkingCollectionsEntryCollectionArgs = {
 };
 
 export enum EditionsWeekendOrder {
-  EdycjaDoAsc = 'edycjaDo_ASC',
-  EdycjaDoDesc = 'edycjaDo_DESC',
-  EdycjaOdAsc = 'edycjaOd_ASC',
-  EdycjaOdDesc = 'edycjaOd_DESC',
+  DatyKursowAsc = 'datyKursow_ASC',
+  DatyKursowDesc = 'datyKursow_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -981,7 +961,7 @@ export type KursTygodniowyQuery = { __typename?: 'Query', editionsWeekCollection
 export type KursWeekendowyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type KursWeekendowyQuery = { __typename?: 'Query', editionsWeekendCollection?: { __typename?: 'EditionsWeekendCollection', items: Array<{ __typename?: 'EditionsWeekend', title?: string | null, edycjaOd?: any | null, edycjaDo?: any | null, wolneMiejsca?: string | null } | null> } | null };
+export type KursWeekendowyQuery = { __typename?: 'Query', editionsWeekendCollection?: { __typename?: 'EditionsWeekendCollection', items: Array<{ __typename?: 'EditionsWeekend', title?: string | null, wolneMiejsca?: string | null, datyKursow?: string | null } | null> } | null };
 
 export type CenaQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -991,5 +971,5 @@ export type CenaQuery = { __typename?: 'Query', priceCollection?: { __typename?:
 
 export const KursDwutygodniowyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"KursDwutygodniowy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsTwoWeeksCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<KursDwutygodniowyQuery, KursDwutygodniowyQueryVariables>;
 export const KursTygodniowyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"KursTygodniowy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsWeekCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<KursTygodniowyQuery, KursTygodniowyQueryVariables>;
-export const KursWeekendowyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"KursWeekendowy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsWeekendCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaOd"}},{"kind":"Field","name":{"kind":"Name","value":"edycjaDo"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}}]}}]}}]}}]} as unknown as DocumentNode<KursWeekendowyQuery, KursWeekendowyQueryVariables>;
+export const KursWeekendowyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"KursWeekendowy"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editionsWeekendCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"wolneMiejsca"}},{"kind":"Field","name":{"kind":"Name","value":"datyKursow"}}]}}]}}]}}]} as unknown as DocumentNode<KursWeekendowyQuery, KursWeekendowyQueryVariables>;
 export const CenaDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Cena"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"priceCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"sys"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}}]}}]}}]}}]}}]} as unknown as DocumentNode<CenaQuery, CenaQueryVariables>;

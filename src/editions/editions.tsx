@@ -8,6 +8,7 @@ type Edition = {
 	edycjaOd: string;
 	edycjaDo: string;
 	wolneMiejsca: string;
+	datyKursow?: string;
 };
 
 const twoWeeksCourse = graphql(/* GraphQL */ `
@@ -41,9 +42,8 @@ const weekendCourse = graphql(/* GraphQL */ `
 		editionsWeekendCollection {
 			items {
 				title
-				edycjaOd
-				edycjaDo
 				wolneMiejsca
+				datyKursow
 			}
 		}
 	}
@@ -62,8 +62,9 @@ const printRange = (startDate: Date, endDate: Date) => {
 }
 
 const EditionCard = ({ edition }: { edition: Edition }) => {
-	const startDate = new Date(edition?.edycjaOd || "");
-	const endDate = new Date(edition?.edycjaDo || "");
+	const startDate = edition?.edycjaOd ? new Date(edition?.edycjaOd || "") : null;
+	const endDate = edition?.edycjaDo ? new Date(edition?.edycjaDo || "") : null;
+	const datyKursow = edition.datyKursow;
 
 	return (
 		<div className="icon-box">
@@ -74,7 +75,7 @@ const EditionCard = ({ edition }: { edition: Edition }) => {
 				<a id="title">{edition.title}</a>
 			</h4>
 			<p className="description" id="dates">
-				{printRange(startDate, endDate)}
+				{startDate && endDate ? printRange(startDate, endDate) : datyKursow}
 			</p>
 			<p className="description" id="vacant">
 				{`Liczba wolnych miejsc: ${edition.wolneMiejsca}`}
@@ -115,7 +116,7 @@ export const WeekendCourseEditions	= () => {
 	});
 	const { editionsWeekendCollection } = data || { editionsCollection: { items: [] } };
 	const editions = editionsWeekendCollection?.items as Edition[];
-	return editions?.sort((a, b) => a.edycjaDo > b.edycjaDo ? 1 : -1).map((edition) =>
+	return editions?.map((edition) =>
 		edition ? (
 			<div
 				key={edition.title}
