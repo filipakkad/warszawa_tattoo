@@ -528,7 +528,7 @@ function App() {
                   <h3>Kurs BHP Tatuażu (on-line)</h3>
                 </div>
                 <p className="font-light">
-                  Higiena, dezynfekcja, sterylizacja, przepisy, Sanepid, BDP, niebezpieczne odpady medyczne, ubrania
+                  Higiena, dezynfekcja, sterylizacja, przepisy, Sanepid, BHP, niebezpieczne odpady medyczne, ubrania
                   robocze, procedury
                 </p>
                 <a className="font-bold w-full" href="https://www.bhptatuazu.pl">Przejdź na www.bhptatuazu.pl ↗</a>
