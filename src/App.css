@@ -18,7 +18,7 @@ header {
     }
 }
 
-header.header-scrolled {
+header.header-scrolled:not(.mobile) {
     a {
         color: black !important;
     }
@@ -29,6 +29,7 @@ header.header-scrolled {
 
 .items-list-main > a {
     text-align: left;
+    color: white;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 0.5rem;
     padding: 1rem;
@@ -36,5 +37,5 @@ header.header-scrolled {
 
 .items-list-main > a:hover {
     color: white;
-    background: rgba(11, 1, 153, 0.4);
+    background: rgba(11, 1, 153, 0.8);
 }

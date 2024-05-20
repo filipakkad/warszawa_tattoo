@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.32.6",
+    "@uidotdev/usehooks": "^2.4.1",
+    "clsx": "^2.1.1",
     "graphql": "^16.7.1",
     "graphql-request": "^6.1.0",
     "react": "^18.2.0",
