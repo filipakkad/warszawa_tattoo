@@ -111,7 +111,7 @@ function App() {
               <a className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2"
                  href="https://www.bhptatuazu.pl">
                 <span className="max-w-[300px] font-bold text-nowrap text-center md:!text-left">Kurs BHP Tatuażu (on-line)  ↗</span>
-                <span className="text-nowrap">299 zł</span>
+                <span className="text-nowrap">100 zł</span>
               </a>
               <A className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="#bhpCourse">
           <span className="max-w-[250px] font-bold text-center md:!text-left">Kurs BHP wraz z inspekcją studia u
@@ -146,7 +146,7 @@ function App() {
                href="https://www.bhptatuazu.pl">
           <span
               className="max-w-[300px] font-bold text-nowrap text-center md:!text-left">Kurs BHP Tatuażu (on-line)  ↗</span>
-              <span className="text-nowrap">299 zł</span>
+              <span className="text-nowrap">100 zł</span>
             </a>
             <A className="flex justify-between md:gap-10 items-center md:flex-row flex-col gap-2" href="#bhpCourse">
           <span className="max-w-[250px] font-bold text-center md:!text-left">Kurs BHP wraz z inspekcją studia u
@@ -572,7 +572,7 @@ function App() {
                     className="border rounded p-4 w-full flex flex-col items-center gap-3 hover:bg-gray-200/20 justify-between">
                   <div className="flex flex-col justify-between items-center">
                     <div
-                        className="text-[13px] tracking-[1px] font-bold px-3 py-1 m-0 text-green-800 bg-green-200 rounded-[50px] w-fit h-min text-nowrap">299
+                        className="text-[13px] tracking-[1px] font-bold px-3 py-1 m-0 text-green-800 bg-green-200 rounded-[50px] w-fit h-min text-nowrap">100
                       zł
                     </div>
                     <h3>Kurs BHP Tatuażu (on-line)</h3>
